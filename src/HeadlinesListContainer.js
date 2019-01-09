@@ -26,7 +26,12 @@ class HeadlinesListContainer extends React.Component {
         const search = queryString.parse(this.props.location.search);
         if (oldPage !== newPage) {
             const articles = await api.getHeadlinesForQuery(search.query, newPage);
-            this.setState({ articles });
+            return this.setState({ articles });
+        }
+
+        if (this.props.location.search != prevProps.location.search) {
+            const articles = await api.getHeadlinesForQuery(search.query);
+            return this.setState({ articles });
         }
     }
 
