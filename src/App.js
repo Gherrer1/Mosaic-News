@@ -9,6 +9,7 @@ class App extends React.Component {
 		return (
 			<Router>
 				<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '30px' }}>
+					<Link to="/">Home</Link>
 					<Route component={SearchForm} />
 					<Route
 						path="/headlines/:page"
