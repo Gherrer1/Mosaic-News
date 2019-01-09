@@ -1,6 +1,7 @@
 import React from 'react';
 import queryString from 'query-string';
 import HeadlinesList from './HeadlinesList';
+import Pages from './Pages';
 import api from './api';
 
 class HeadlinesListContainer extends React.Component {
@@ -20,15 +21,21 @@ class HeadlinesListContainer extends React.Component {
     }
 
     render() {
+        const { match } = this.props;
+        const page = Number(match.params.page);
+        console.log(page);
         const { articles } = this.state;
-        if (articles.length == 0) {
+        if (articles.length === 0) {
             return <div>No articles found.</div>
         }
 
         return (
-            <HeadlinesList
-                articles={articles}
-            />
+            <div>
+                <HeadlinesList
+                    articles={articles}
+                />
+                <Pages currentPage={page} />
+            </div>
         )
     }
 }
