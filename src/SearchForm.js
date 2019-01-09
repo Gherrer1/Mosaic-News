@@ -24,7 +24,11 @@ class SearchFrom extends React.Component {
         e.preventDefault();
 
         const { query } = this.state;
-        this.props.handleSubmit(query);
+        const { history } = this.props;
+        history.push({
+            pathname: '/headlines/1',
+            search: `?query=${query}`,
+        });
         this.setState({
             query: '',
         });
