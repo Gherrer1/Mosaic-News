@@ -3,9 +3,9 @@ import Headline from './Headline';
 
 function HeadlinesList({ articles }) {
     return (
-        <ul style={{ padding: '0px 15px' }}>
+        <ul style={{ padding: '0px 15px', listStyle: 'none' }}>
             {articles.map((article, index) => (
-                <Headline key={index} article={article} />
+                <li><Headline key={index} article={article} /></li>
             ))}
         </ul>
     )
