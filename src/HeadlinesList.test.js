@@ -12,4 +12,16 @@ describe('<HeadlinesList />', () => {
         const result = container.querySelector('li');
         expect(result).toBeNull();
     });
+
+    it('should render 3 lis if given a list of 3 articles', () => {
+        const dummyArticles = [
+            { url: 'abc', title: 'abc' },
+            { url: 'abcd', title: 'abc' },
+            { url: 'abcde', title: 'abc' },
+        ];
+        const renderResult = render(<HeadlinesList articles={dummyArticles}/>);
+        const { container } = renderResult;
+        const result = container.querySelectorAll('li');
+        expect(result.length).toBe(3);
+    });
 });
