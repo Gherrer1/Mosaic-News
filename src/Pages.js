@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Pages({ currentPage, search }) {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
             {currentPage > 1 && (
                 <Link
                     to={{
