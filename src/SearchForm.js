@@ -41,7 +41,7 @@ class SearchFrom extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <input
                     type="text"
-                    placeholder="e.g. Trump"
+                    placeholder="e.g. Lebron James"
                     value={query}
                     onChange={this.handleChange}
                 />
