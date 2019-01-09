@@ -20,10 +20,20 @@ class HeadlinesListContainer extends React.Component {
         this.setState({ articles });
     }
 
+    async componentDidUpdate(prevProps) {
+        const oldPage = Number(prevProps.match.params.page);
+        const newPage = Number(this.props.match.params.page);
+        const search = queryString.parse(this.props.location.search);
+        if (oldPage !== newPage) {
+            const articles = await api.getHeadlinesForQuery(search.query, newPage);
+            this.setState({ articles });
+        }
+    }
+
     render() {
         const { match } = this.props;
         const page = Number(match.params.page);
-        console.log(page);
+        const { search } = this.props.location;
         const { articles } = this.state;
         if (articles.length === 0) {
             return <div>No articles found.</div>
@@ -34,7 +44,7 @@ class HeadlinesListContainer extends React.Component {
                 <HeadlinesList
                     articles={articles}
                 />
-                <Pages currentPage={page} />
+                <Pages currentPage={page} search={search} />
             </div>
         )
     }
