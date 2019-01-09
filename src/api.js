@@ -1,5 +1,5 @@
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('22813d5757cf47348d53ccc9ccdcefc7');
+const newsapi = new NewsAPI(process.env.REACT_APP_API_KEY);
 
 async function getHeadlinesForQuery(query, page = 1) {
     const results = await newsapi.v2.everything({
