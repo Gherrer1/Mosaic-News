@@ -3,7 +3,7 @@ import Headline from './Headline';
 
 function HeadlinesList({ articles }) {
     return (
-        <ul>
+        <ul style={{ padding: '0px 15px' }}>
             {articles.map((article, index) => (
                 <Headline key={index} article={article} />
             ))}
